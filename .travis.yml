@@ -26,7 +26,9 @@ install:
   - make pull-images
 before_script:
   - make validate
-script: make test-unit && travis_retry make test-integration
+script:
+  - make test-unit && travis_retry make test-integration
+  - make image
 after_failure:
   - docker ps
 before_deploy:
